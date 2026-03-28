@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode */
+    --background: 210 20% 98%;
+    --foreground: 220 18% 7%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 10% 42%;
+    --border: 220 14% 84%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 18% 7%;
+    --primary: 47 95% 55%;
+    --primary-foreground: 220 18% 7%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 18% 14%;
+    --accent: 200 85% 45%;
+    --accent-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 220 18% 7%;
+    --foreground: 210 20% 98%;
+    --muted: 220 16% 14%;
+    --muted-foreground: 220 10% 58%;
+    --border: 220 14% 20%;
+    --card: 220 18% 11%;
+    --card-foreground: 210 20% 98%;
+    --primary: 47 95% 55%;
+    --primary-foreground: 220 18% 7%;
+    --secondary: 220 14% 18%;
+    --secondary-foreground: 210 15% 92%;
+    --accent: 200 85% 58%;
+    --accent-foreground: 220 18% 7%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+  }
+
+  .dark body,
+  body:has(html.dark) {
+    background-image:
+      radial-gradient(circle at top center, hsl(var(--primary) / 0.10), transparent 32%),
+      radial-gradient(circle at 20% 20%, hsl(200 85% 58% / 0.06), transparent 28%),
+      linear-gradient(180deg, hsl(220 18% 7%) 0%, hsl(222 20% 6%) 100%);
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+    color: hsl(var(--foreground));
+  }
+
+  .skip-link {
+    @apply absolute left-4 top-4 z-[80] -translate-y-16 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform duration-200 focus:translate-y-0;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply relative border-b border-border/60 py-20 sm:py-24;
+  }
+
+  .surface-panel {
+    @apply rounded-[2rem] border border-border/80 bg-card/85 backdrop-blur;
+    box-shadow: 0 24px 80px -40px hsl(220 18% 2% / 0.2);
+  }
+
+  .dark .surface-panel {
+    box-shadow: 0 24px 80px -40px hsl(225 55% 2% / 0.9);
+  }
+
+  .section-copy {
+    @apply max-w-prose text-base leading-7 text-muted-foreground;
+  }
+
+  .bg-grid-pattern {
+    background-image:
+      radial-gradient(circle, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .dark .bg-grid-pattern {
+    background-image:
+      radial-gradient(circle, hsl(var(--border) / 0.25) 1px, transparent 1px);
+  }
+}
