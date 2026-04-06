@@ -54,3 +54,7 @@ pdf_content.txt
 pdf_content_utf8.txt
 curriculo*.pdf
 curriculo*.docx
+.openclaude-profile.json
+.firecrawl/
+.claude/
+.github/

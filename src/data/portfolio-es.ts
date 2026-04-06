@@ -11,9 +11,9 @@ export const portfolioDataEs: PortfolioData = {
       "desarrollador",
       "ingeniería de software",
       "portafolio",
-      "Next.js",
-      "React",
-      "TypeScript",
+      "CyberSecurity",
+      "seguridad de la información",
+      "análisis de vulnerabilidades",
     ],
   },
   routeSeo: {
@@ -27,7 +27,7 @@ export const portfolioDataEs: PortfolioData = {
     },
     stacks: {
       title: "Stacks | Gustavo Fogliati",
-      description: "Lenguajes, frameworks y herramientas del repertorio técnico.",
+      description: "Lenguajes, cloud y herramientas del repertorio técnico actual.",
     },
     skills: {
       title: "Skills | Gustavo Fogliati",
@@ -90,7 +90,7 @@ export const portfolioDataEs: PortfolioData = {
     highlightedText: "Código limpio. Diseño funcional. Resultado.",
     highlightedPhrases: ["Código limpio.", "Diseño funcional.", "Resultado."],
     description:
-      "Estudiante de Ingeniería de Software enfocado en desarrollo web y cloud, con experiencia en automatización de procesos y soluciones de alto rendimiento en Next.js.",
+      "Estudiante de Ingeniería de Software enfocado en CyberSecurity, con experiencia en automatización de procesos e interés creciente en análisis de seguridad, redes y protección de sistemas.",
     primaryCta: { label: "Ver proyectos", href: "/projects" },
     secondaryCta: { label: "Entrar en contacto", href: "/contact" },
   },
@@ -99,23 +99,23 @@ export const portfolioDataEs: PortfolioData = {
     lead:
       "Me impulsa la curiosidad técnica y la búsqueda de transformar problemas complejos en interfaces simples y eficientes.",
     paragraphs: [
-      "Comencé como autodidacta, apasionado por entender los bastidores de la tecnología. Actualmente estudio Ingeniería de Software en UNINTER y busco aplicar Python, JavaScript y Cloud Computing para crear productos reales que generen valor.",
+      "Comencé como autodidacta, buscando entender lo que ocurre detrás de la tecnología. Actualmente estudio Ingeniería de Software en UNINTER y dirijo mi aprendizaje hacia CyberSecurity, con foco en análisis de vulnerabilidades, redes y defensa de sistemas.",
       "Mi experiencia en el sector público me dio una base sólida en gestión de datos, automatización de tareas y atención al usuario, competencias que hoy llevo al desarrollo técnico de software.",
     ],
     metrics: [
       { label: "Sector público", value: "1 año" },
-      { label: "Enfoque actual", value: "Next.js / Cloud" },
+      { label: "Enfoque actual", value: "CyberSecurity" },
       { label: "Formación", value: "Ing. Software" },
     ],
   },
   stacks: [
     {
       title: "Lenguajes",
-      items: ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"],
+      items: ["Python", "HTML", "CSS"],
     },
     {
-      title: "Frameworks y cloud",
-      items: ["Next.js", "React", "Google Cloud", "Tailwind CSS", "Node.js"],
+      title: "Cloud",
+      items: ["Google Cloud"],
     },
     {
       title: "Herramientas",
@@ -129,7 +129,7 @@ export const portfolioDataEs: PortfolioData = {
         "Google Cloud Platform Basics",
         "CyberSecurity (Cisco)",
         "Automatización con Python",
-        "Next.js App Router",
+        "Análisis de vulnerabilidades",
       ],
     },
     {
@@ -198,9 +198,9 @@ export const portfolioDataEs: PortfolioData = {
     stacks: {
       eyebrow: "Stacks",
       title: "Tecnologías y herramientas de mi día a día.",
-      description: "Los lenguajes, frameworks y herramientas que uso para construir aplicaciones web modernas.",
+      description: "Los lenguajes, recursos de cloud y herramientas que forman parte de mi repertorio técnico actual.",
       badge: "Mapa técnico del repertorio actual",
-      highlights: ["Lenguajes principales", "Frameworks y bibliotecas", "Herramientas de rutina profesional"],
+      highlights: ["Lenguajes principales", "Cloud y seguridad", "Herramientas de rutina profesional"],
     },
     skills: {
       eyebrow: "Skills",
@@ -257,7 +257,7 @@ export const portfolioDataEs: PortfolioData = {
     aboutEyebrow: "Perfil",
     aboutDirectionTitle: "Dirección",
     aboutDirectionText:
-      "Búsqueda constante por entender el producto como un todo, no solo el código, sino el motivo detrás de cada decisión técnica.",
+      "Estoy orientando mi crecimiento hacia CyberSecurity, fortaleciendo mi base en análisis de vulnerabilidades, redes y defensa de sistemas.",
     projectsEyebrow: "Proyectos seleccionados",
     projectsTitle: "Proyectos seleccionados que demuestran enfoque técnico y resolución de problemas.",
     projectsDescription: "Cada proyecto representa un desafío diferente. La estructura permite evolución continua.",
@@ -268,11 +268,11 @@ export const portfolioDataEs: PortfolioData = {
     demoLabel: "Demo",
     repositoryLabel: "GitHub",
     stacksEyebrow: "Stack técnico",
-    stacksTitle: "Lenguajes, frameworks y herramientas de mi repertorio técnico.",
+    stacksTitle: "Lenguajes, cloud y herramientas de mi repertorio técnico.",
     stacksDescription: "Organizado en bloques independientes para lectura rápida y directa.",
     currentFocusLabel: "Enfoque actual",
-    currentFocusTitle: "Web full-stack con foco en frontend moderno.",
-    currentFocusDescription: "Next.js, React y TypeScript forman el centro de mi desarrollo diario.",
+    currentFocusTitle: "CyberSecurity como foco actual de especialización.",
+    currentFocusDescription: "He orientado mis estudios hacia análisis de vulnerabilidades, redes, defensa de sistemas y seguridad aplicada.",
     skillsEyebrow: "Competencias profesionales",
     skillsTitle: "Competencias profesionales que complementan la ejecución técnica.",
     skillsDescription: "Habilidades que van más allá del código, comunicación, organización y pensamiento de producto.",
@@ -313,7 +313,7 @@ export const portfolioDataEs: PortfolioData = {
     directoryFallbackDescription: "Página dedicada del portafolio.",
     directoryDescriptions: {
       "/about": "Trayectoria, visión de trabajo y posicionamiento profesional.",
-      "/stacks": "Tecnologías, frameworks y herramientas que forman la base técnica.",
+      "/stacks": "Tecnologías, cloud y herramientas que forman la base técnica actual.",
       "/skills": "Competencias funcionales y diferenciales de ejecución.",
       "/education": "Formación académica presentada en formato de timeline editorial.",
       "/experience": "Trayectoria profesional y experiencia en automatización de procesos.",
