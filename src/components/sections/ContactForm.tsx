@@ -60,6 +60,8 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
         });
 
         if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          console.error("Formspree Error:", errorData);
           throw new Error(ui.sendFailureMessage);
         }
 
@@ -79,9 +81,14 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
       )}&body=${encodeURIComponent(body)}`;
       setStatus("fallback");
       setFeedback(ui.sendFallbackMessage);
-    } catch {
+    } catch (error) {
+      console.error("Submission error:", error);
       setStatus("error");
-      setFeedback(ui.sendErrorMessage);
+      setFeedback(
+        error instanceof Error && error.message === ui.sendFailureMessage
+          ? ui.sendFailureMessage
+          : ui.sendErrorMessage
+      );
     }
   }
 
