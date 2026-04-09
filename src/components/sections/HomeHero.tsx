@@ -2,8 +2,13 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  LucideGithub as Github, 
+  LucideLinkedin as Linkedin, 
+  Mail, 
+  GraduationCap 
+} from 'lucide-react';
 import { usePortfolioContent } from "@/components/providers/AppProviders";
-import { AnimateIn } from "@/components/ui/AnimateIn";
 import { TypingAnimation } from "@/components/ui/TypingAnimation";
 
 export function HomeHero() {
@@ -11,120 +16,116 @@ export function HomeHero() {
   const { hero, profile, socialLinks, ui } = content;
 
   return (
-    <section className="section-shell overflow-hidden border-b-0 pt-16 sm:pt-24">
-      <div className="container grid items-end gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="space-y-8">
-          <div className="space-y-5">
-            <AnimateIn delay={0.1}>
-              <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-                {hero.eyebrow}
-              </span>
-            </AnimateIn>
-
-            <div className="space-y-5">
-              <AnimateIn delay={0.2}>
-                <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                  {hero.title}
-                </h1>
-              </AnimateIn>
-              <AnimateIn delay={0.3}>
-                <div
-                  className="min-h-[1.5em] max-w-2xl text-lg font-medium text-primary sm:text-xl"
-                  aria-live="polite"
-                >
-                  <TypingAnimation phrases={hero.highlightedPhrases} delay={0.6} />
-                </div>
-              </AnimateIn>
-              <AnimateIn delay={0.4}>
-                <p className="section-copy text-base sm:text-lg">{hero.description}</p>
-              </AnimateIn>
-            </div>
+    <section className="max-w-7xl mx-auto px-6 pt-32 pb-20 overflow-hidden">
+      <div className="grid lg:grid-cols-[1fr,400px] gap-12 items-start">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-block bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-[0.2em] px-3 py-1 rounded-full mb-6 uppercase">
+            {hero.eyebrow}
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 tracking-tight text-white">
+            {hero.title}
+          </h1>
+          
+          <div className="text-2xl md:text-3xl font-medium text-primary mb-8 flex items-center gap-2">
+            <TypingAnimation phrases={hero.highlightedPhrases} delay={0.6} />
           </div>
 
-          <AnimateIn delay={0.5}>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link
-                href={hero.primaryCta.href}
-                className="group inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_0_24px_hsl(var(--primary)/0.35)] active:scale-[0.98]"
-              >
-                {hero.primaryCta.label}
-              </Link>
-              <Link
-                href={hero.secondaryCta.href}
-                className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-200 hover:border-primary/30 hover:bg-card/80 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                {hero.secondaryCta.label}
-              </Link>
-            </div>
-          </AnimateIn>
+          <p className="text-gray-400 text-lg max-w-xl mb-10 leading-relaxed font-medium">
+            {hero.description}
+          </p>
 
-          <AnimateIn delay={0.6}>
-            <ul className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-              {socialLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.ariaLabel}
-                    className="transition-colors duration-200 hover:text-primary"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </AnimateIn>
-        </div>
+          <div className="flex flex-wrap gap-4 mb-12">
+            <Link 
+              href={hero.primaryCta.href}
+              className="bg-primary hover:bg-primary/90 text-black px-8 py-3.5 rounded-full font-bold transition-all transform hover:scale-105"
+            >
+              {hero.primaryCta.label}
+            </Link>
+            <Link 
+              href={hero.secondaryCta.href}
+              className="bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-3.5 rounded-full font-bold transition-all text-white"
+            >
+              {hero.secondaryCta.label}
+            </Link>
+          </div>
 
-        <AnimateIn variant="slideLeft" delay={0.3} duration={0.6}>
-          <div className="surface-panel relative overflow-hidden p-8">
-            <div className="absolute inset-0 bg-hero-glow" aria-hidden="true" />
-            <div className="absolute inset-0 bg-grid-fade bg-grid opacity-40" aria-hidden="true" />
-            <div className="relative space-y-8">
-              <div className="space-y-2">
-                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground">
+          <div className="flex gap-6 text-gray-500 text-sm font-medium">
+            {socialLinks.map((link) => {
+              const label = link.label.toLowerCase();
+              const IsGithub = label.includes('github');
+              const IsLinkedin = label.includes('linkedin');
+              const Icon = IsGithub ? Github : IsLinkedin ? Linkedin : Mail;
+              
+              return (
+                <a 
+                  key={link.label}
+                  href={link.href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <Icon size={16} /> {link.label}
+                </a>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Profile Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative"
+        >
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-8 overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] -mr-32 -mt-32 group-hover:bg-primary/10 transition-colors" />
+            
+            <div className="relative z-10">
+              <div className="mb-8">
+                <span className="text-[10px] font-bold text-gray-500 tracking-widest uppercase mb-2 block">
                   {ui.profileLabel}
-                </p>
-                <h2 className="text-2xl font-semibold text-foreground">{profile.name}</h2>
-                <p className="text-base text-muted-foreground">{profile.role}</p>
+                </span>
+                <h2 className="text-2xl font-bold mb-1 text-white">{profile.name}</h2>
+                <p className="text-gray-400 text-sm">{profile.role}</p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="rounded-3xl border border-border/70 bg-background/60 p-5"
-                >
-                  <p className="text-sm text-muted-foreground">{ui.locationLabel}</p>
-                  <p className="mt-2 text-lg font-medium text-foreground">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div className="bg-white/5 border border-white/5 rounded-2xl p-4">
+                  <span className="text-[10px] text-gray-500 uppercase block mb-1">
+                    {ui.locationLabel}
+                  </span>
+                  <p className="text-sm font-bold text-white">
                     {profile.location || ui.locationFallback}
                   </p>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="rounded-3xl border border-border/70 bg-background/60 p-5"
-                >
-                  <p className="text-sm text-muted-foreground">{ui.resumeLabel}</p>
-                  <p className="mt-2 text-lg font-medium text-foreground">
+                </div>
+                <div className="bg-white/5 border border-white/5 rounded-2xl p-4">
+                  <span className="text-[10px] text-gray-500 uppercase block mb-1">
+                    {ui.resumeLabel}
+                  </span>
+                  <p className="text-sm font-bold text-gray-400 italic">
                     {profile.resumeUrl ? ui.resumeAvailable : ui.resumeSoon}
                   </p>
-                </motion.div>
+                </div>
               </div>
 
-              <div className="flex items-center gap-4 rounded-3xl border border-primary/20 bg-primary/5 p-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                  <span className="text-xl">🎓</span>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-4 group/edu hover:bg-white/10 transition-colors cursor-default">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <GraduationCap size={24} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-primary">{ui.degreeLabel}</p>
-                  <p className="text-xs text-muted-foreground">{ui.degreePeriod}</p>
+                  <h3 className="text-sm font-bold text-primary">{ui.degreeLabel}</h3>
+                  <p className="text-[10px] text-gray-500 uppercase font-bold">{ui.degreePeriod}</p>
                 </div>
               </div>
             </div>
           </div>
-        </AnimateIn>
+        </motion.div>
       </div>
     </section>
   );

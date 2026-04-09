@@ -12,8 +12,9 @@ import {
 } from "framer-motion";
 import { useLocale, usePortfolioContent, useTheme } from "@/components/providers/AppProviders";
 import type { Locale } from "@/lib/i18n";
-import type { NavIconName } from "@/data/portfolio-data";
+import type { NavIconName } from "@/data/portfolio-types";
 
+// Custom SVG Icons from the old model
 function DockIcon({ name }: { name: NavIconName }) {
   const commonProps = {
     className: "h-[45%] w-[45%]",
@@ -88,20 +89,14 @@ function DockIcon({ name }: { name: NavIconName }) {
           <path d="m4 7 8 6 8-6" />
         </svg>
       );
+    default:
+      return null;
   }
 }
 
 function SunIcon() {
   return (
-    <svg
-      className="h-[45%] w-[45%]"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.8}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
+    <svg className="h-[45%] w-[45%]" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="4" />
       <path d="M12 2v2.5" />
       <path d="M12 19.5V22" />
@@ -117,15 +112,7 @@ function SunIcon() {
 
 function MoonIcon() {
   return (
-    <svg
-      className="h-[45%] w-[45%]"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.8}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
+    <svg className="h-[45%] w-[45%]" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
     </svg>
   );
@@ -193,7 +180,7 @@ function DockItem({
           className={`flex h-full w-full items-center justify-center rounded-full transition-colors duration-200 ${
             isActive
               ? "border-2 border-primary bg-primary/15 text-primary"
-              : "border border-transparent bg-secondary text-muted-foreground hover:text-foreground"
+              : "border border-transparent bg-muted/20 text-muted-foreground hover:text-foreground hover:bg-muted/40 backdrop-blur-md"
           }`}
         >
           {children}
@@ -217,14 +204,13 @@ function LocaleSwitcher() {
           key={item}
           type="button"
           onClick={() => setLocale(item)}
-          aria-pressed={locale === item}
           className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
             locale === item
-              ? "bg-primary text-primary-foreground"
+              ? "bg-primary text-black"
               : "text-muted-foreground hover:text-foreground"
           }`}
         >
-          {content.ui.localeNames[item as Locale]}
+          {item.toUpperCase()}
         </button>
       ))}
     </div>
@@ -240,14 +226,14 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed left-0 right-0 top-0 z-50 hidden items-start justify-center pt-4 lg:flex">
+      <header className="fixed left-0 right-0 top-0 z-50 hidden items-start justify-center pt-8 lg:flex">
         <nav
           aria-label="Primary navigation"
           className="flex items-end gap-3"
           onMouseMove={(event) => mouseX.set(event.clientX)}
           onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
         >
-          <ul className="flex h-[60px] items-end gap-2 overflow-visible rounded-full border border-border/60 bg-background/80 px-4 pb-2 shadow-sm backdrop-blur-xl">
+          <ul className="flex h-[60px] items-end gap-2 overflow-visible rounded-full border border-border/60 bg-background/80 px-4 pb-2 shadow-lg backdrop-blur-xl">
             {content.navigation.map((item) => (
               <DockItem
                 key={item.href}
@@ -285,8 +271,7 @@ export function Navbar() {
 
         <button
           onClick={() => setMobileOpen((current) => !current)}
-          aria-label={mobileOpen ? content.ui.closeMenuLabel : content.ui.openMenuLabel}
-          className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/25 transition hover:scale-105"
+          className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-primary bg-primary text-black shadow-lg shadow-primary/25 transition hover:scale-105"
         >
           {mobileOpen ? <CloseIcon /> : <MenuIcon />}
         </button>

@@ -8,6 +8,7 @@ import { getPortfolioData } from "@/data/portfolio-data";
 import { HTML_LANG } from "@/lib/i18n";
 import { getRootMetadata } from "@/lib/metadata";
 import { getRequestLocale } from "@/lib/request-locale";
+import { Background3D } from "@/components/ui/Background3D";
 import "./globals.css";
 
 const sans = Geist({
@@ -40,12 +41,13 @@ export default async function RootLayout({
       className={`${sans.variable} ${mono.variable} dark`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen font-sans text-foreground">
+      <body className="min-h-screen font-sans text-foreground overflow-x-hidden">
         <a href="#main-content" className="skip-link">
           {content.ui.skipToContentLabel}
         </a>
         <AppProviders initialLocale={locale}>
           <div className="relative flex min-h-screen flex-col">
+            <Background3D />
             <ScrollProgress />
             <Navbar />
             <main id="main-content" className="flex-1 focus:outline-none">

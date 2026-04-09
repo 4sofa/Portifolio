@@ -3,57 +3,56 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePortfolioContent } from "@/components/providers/AppProviders";
-import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
 
 export function PageDirectorySection() {
   const content = usePortfolioContent();
   const { navigation, ui } = content;
 
   return (
-    <section className="section-shell">
-      <div className="container space-y-8">
-        <AnimateIn>
-          <div className="space-y-3">
-            <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-              {ui.directoryEyebrow}
-            </span>
-            <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              {ui.directoryTitle}
-            </h2>
-            <p className="section-copy">{ui.directoryDescription}</p>
-          </div>
-        </AnimateIn>
+    <section className="max-w-7xl mx-auto px-6 mt-40 pb-40">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="inline-block bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-[0.2em] px-3 py-1 rounded-full mb-6 uppercase">
+          {ui.directoryEyebrow}
+        </div>
+        
+        <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 max-w-2xl text-white">
+          {ui.directoryTitle}
+        </h2>
+        
+        <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
+          {ui.directoryDescription}
+        </p>
+      </motion.div>
 
-        <StaggerContainer className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {navigation
-            .filter((item) => item.href !== "/")
-            .map((item) => (
-              <StaggerItem key={item.href}>
-                <Link
-                  href={item.href}
-                  className="surface-panel group flex min-h-56 flex-col justify-between p-7 transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-[0_16px_48px_hsl(var(--primary)/0.12)]"
-                >
-                  <div className="space-y-4">
-                    <span className="text-sm uppercase tracking-[0.2em] text-primary">
-                      {item.label}
-                    </span>
-                    <h3 className="text-2xl font-semibold text-foreground transition-colors group-hover:text-primary">
-                      {item.label}
-                    </h3>
-                    <p className="section-copy text-sm">
-                      {ui.directoryDescriptions[item.href] || ui.directoryFallbackDescription}
-                    </p>
-                  </div>
-                  <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
-                    {ui.directoryOpenLabel}
-                    <motion.span className="inline-block" initial={{ x: 0 }} whileHover={{ x: 4 }}>
-                      →
-                    </motion.span>
-                  </span>
-                </Link>
-              </StaggerItem>
-            ))}
-        </StaggerContainer>
+      <div className="grid md:grid-cols-3 gap-6 mt-16">
+        {navigation
+          .filter((item) => item.href !== "/")
+          .map((item, i) => (
+          <motion.div
+            key={item.href}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
+            <Link
+              href={item.href}
+              className="block bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all group cursor-pointer h-full"
+            >
+              <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors text-white">
+                {item.label}
+              </h3>
+              <p className="text-gray-400 text-sm">
+                {ui.directoryDescriptions[item.href] || ui.directoryFallbackDescription}
+              </p>
+            </Link>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
