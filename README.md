@@ -86,9 +86,3 @@ npm install
 ```bash
 npm run dev
 ```
-
-Abra [http://localhost:3000](http://localhost:3000) (ou a porta atribuída, geralmente a 3001) para ver localmente.
-
----
-
-> Esse Readme e prints visuais foram gerados com o subagente interno automatizado do Antigravity Kit! 🚀
