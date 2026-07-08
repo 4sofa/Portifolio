@@ -3,7 +3,6 @@ import type { Locale } from "@/lib/i18n";
 export type NavIconName =
   | "home"
   | "user"
-  | "spark"
   | "cap"
   | "stack"
   | "projects"
@@ -14,7 +13,6 @@ export type PageKey =
   | "home"
   | "about"
   | "stacks"
-  | "skills"
   | "education"
   | "experience"
   | "projects"
@@ -121,6 +119,10 @@ export interface LocaleUiContent {
   resumeLabel: string;
   resumeAvailable: string;
   resumeSoon: string;
+  resumePageTitle: string;
+  resumePageDescription: string;
+  resumeDownloadLabel: string;
+  resumeOpenLabel: string;
   degreeLabel: string;
   degreePeriod: string;
   featuredProjectLabel: string;

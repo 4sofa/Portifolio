@@ -14,7 +14,7 @@ const languageIcons: Record<string, string> = {
 };
 
 export function StacksSection() {
-  const { stacks } = usePortfolioContent();
+  const { skills, stacks } = usePortfolioContent();
   const languageStack = stacks.find((category) =>
     category.items.some((item) => languageIcons[item]),
   );
@@ -45,6 +45,24 @@ export function StacksSection() {
             ))}
           </StaggerContainer>
         ) : null}
+
+        <StaggerContainer className="grid gap-6">
+          {skills.map((group) => (
+            <StaggerItem key={group.title}>
+              <article className="surface-panel p-8">
+                <h3 className="text-2xl font-semibold text-foreground">{group.title}</h3>
+                <ul className="mt-6 grid gap-3 text-sm text-muted-foreground">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
     </section>
   );

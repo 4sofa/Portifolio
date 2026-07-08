@@ -29,31 +29,10 @@ Este é o repositório do meu portfólio pessoal, com as minhas habilidades, exp
 
 Abaixo estão capturas detalhadas do portfólio demonstrando a estrutura e identidade visual nas duas variantes de tema implementadas:
 
-### 🏠 Home / Hero
-Página inicial com stagger cards reveal, foco imediato em skills técnicas e um status de contratação visual.
+### Stack tecnico
+Uma unica area de repertorio tecnico em `/stacks`, reunindo linguagens e competencias tecnicas abaixo do PageIntro.
 
-<img src="./public/screenshots/home_dark.png" alt="Home - Tema Escuro" width="700"/>
-
-### 👨‍💻 Sobre
-Seção onde destaco minha mentalidade sob engenharia de produto e foco nos detalhes.
-
-**Modo Escuro:**
-<img src="./public/screenshots/about_dark.png" alt="Sobre - Dark Mode" width="700"/>
-
-**Modo Claro:**
-<img src="./public/screenshots/about_light.png" alt="Sobre - Light Mode" width="700"/>
-
-### 🚀 Projetos
-Espaço reservado aos trabalhos de maior destaque (Cabanas e SoundPad). Cards com animação hover spring e links para repositórios.
-
-<img src="./public/screenshots/projects_dark.png" alt="Projetos" width="700"/>
-
-### 🧰 Skills e Stacks
-Dois pilares de navegação: um focado em mentalidade (`/skills`) e outro que exibe objetivamente as badges técnicas (`/stacks` com TypeScript, Python, etc.)
-
-<img src="./public/screenshots/skills_dark.png" alt="Skills" width="450"/>
 <img src="./public/screenshots/stacks_dark.png" alt="Stacks" width="450"/>
-
 ### 🎓 Educação
 Um showcase da minha formação em **Engenharia de Software (UNINTER)** animado de forma cinemática (Stagger containers).
 

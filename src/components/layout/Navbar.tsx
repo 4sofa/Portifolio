@@ -42,14 +42,6 @@ function DockIcon({ name }: { name: NavIconName }) {
           <path d="M5 20a7 7 0 0 1 14 0" />
         </svg>
       );
-    case "spark":
-      return (
-        <svg {...commonProps}>
-          <path d="M12 3v5" />
-          <path d="m8.5 11 3.5-3 3.5 3" />
-          <path d="M8 15a4 4 0 1 1 8 0c0 2-1 3-2 4H10c-1-1-2-2-2-4Z" />
-        </svg>
-      );
     case "cap":
       return (
         <svg {...commonProps}>

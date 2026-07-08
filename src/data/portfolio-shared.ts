@@ -4,7 +4,7 @@ export const sharedProfile = {
   name: "Gustavo Barreto Fogliati",
   location: "Porto Alegre, RS, Brasil",
   avatarUrl: "",
-  resumeUrl: "",
+  resumeUrl: "/cv/gustavo-fogliati-cv.pdf",
   email: "gustavofogliati@gmail.com",
 };
 
@@ -47,7 +47,6 @@ export const sharedNavigation = [
   { key: "home", href: "/", icon: "home" },
   { key: "about", href: "/about", icon: "user" },
   { key: "stacks", href: "/stacks", icon: "stack" },
-  { key: "skills", href: "/skills", icon: "spark" },
   { key: "education", href: "/education", icon: "cap" },
   { key: "experience", href: "/experience", icon: "briefcase" },
   { key: "projects", href: "/projects", icon: "projects" },

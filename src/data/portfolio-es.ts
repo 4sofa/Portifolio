@@ -29,10 +29,6 @@ export const portfolioDataEs: PortfolioData = {
       title: "Stacks | Gustavo Fogliati",
       description: "Lenguajes, cloud y herramientas del repertorio técnico actual.",
     },
-    skills: {
-      title: "Skills | Gustavo Fogliati",
-      description: "Competencias técnicas, organización y comunicación.",
-    },
     education: {
       title: "Educación | Gustavo Fogliati",
       description: "Formación académica en Ingeniería de Software en UNINTER.",
@@ -60,7 +56,6 @@ export const portfolioDataEs: PortfolioData = {
       home: "Inicio",
       about: "Sobre mí",
       stacks: "Stacks",
-      skills: "Skills",
       education: "Educación",
       experience: "Experiencia",
       projects: "Proyectos",
@@ -190,11 +185,6 @@ export const portfolioDataEs: PortfolioData = {
       title: "Lenguajes, cloud y herramientas.",
       description: "Lenguajes que estoy aprendiendo y utilizando actualmente.",
     },
-    skills: {
-      eyebrow: "Skills",
-      title: "Skills",
-      description: "Competencias tecnicas y soft skills.",
-    },
     education: {
       eyebrow: "Educación",
       title: "Mi formación académica.",
@@ -227,6 +217,10 @@ export const portfolioDataEs: PortfolioData = {
     resumeLabel: "CV / Resume",
     resumeAvailable: "Disponible",
     resumeSoon: "Próximamente",
+    resumePageTitle: "CV Gustavo Fogliati",
+    resumePageDescription: "Visualiza el curriculo directamente en el navegador o descarga el PDF.",
+    resumeDownloadLabel: "Descargar CV",
+    resumeOpenLabel: "Abrir PDF",
     degreeLabel: "Ingeniería de Software",
     degreePeriod: "UNINTER - 2025",
     featuredProjectLabel: "Proyecto destacado",
@@ -268,7 +262,6 @@ export const portfolioDataEs: PortfolioData = {
     directoryDescriptions: {
       "/about": "Trayectoria, visión de trabajo y posicionamiento profesional.",
       "/stacks": "Tecnologías, cloud y herramientas que forman la base técnica actual.",
-      "/skills": "Competencias funcionales y diferenciales de ejecución.",
       "/education": "Formación académica presentada en formato de timeline editorial.",
       "/experience": "Trayectoria profesional y experiencia en automatización de procesos.",
       "/projects": "Vitrina técnica con proyectos, roles y enlaces externos.",

@@ -100,14 +100,28 @@ export function HomeHero() {
                     {profile.location || ui.locationFallback}
                   </p>
                 </div>
+                {profile.resumeUrl ? (
+                  <Link
+                    href="/cv"
+                    className="bg-white/5 border border-white/5 rounded-2xl p-4 transition-colors hover:bg-white/10 hover:border-primary/25"
+                  >
+                    <span className="text-[10px] text-gray-500 uppercase block mb-1">
+                      {ui.resumeLabel}
+                    </span>
+                    <span className="mt-2 inline-flex rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-black">
+                      {ui.resumeOpenLabel}
+                    </span>
+                  </Link>
+                ) : (
                 <div className="bg-white/5 border border-white/5 rounded-2xl p-4">
                   <span className="text-[10px] text-gray-500 uppercase block mb-1">
                     {ui.resumeLabel}
                   </span>
                   <p className="text-sm font-bold text-gray-400 italic">
-                    {profile.resumeUrl ? ui.resumeAvailable : ui.resumeSoon}
+                    {ui.resumeSoon}
                   </p>
                 </div>
+                )}
               </div>
 
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-4 group/edu hover:bg-white/10 transition-colors cursor-default">
