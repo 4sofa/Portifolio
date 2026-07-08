@@ -91,7 +91,7 @@ export const portfolioDataPt: PortfolioData = {
   about: {
     title: "Sobre mim",
     lead:
-      "Sou movido pela curiosidade tecnica e pela busca em transformar problemas complexos em interfaces simples e eficientes.",
+      "Sou movido pela curiosidade técnica e pela busca em transformar problemas complexos em interfaces simples e eficientes.",
     paragraphs: [
       "Comecei como autodidata, buscando entender os bastidores da tecnologia. Atualmente, curso Engenharia de Software na UNINTER e direciono meus estudos para CyberSecurity, com foco em analise de vulnerabilidades, redes e defesa de sistemas.",
       "Minha experiencia no setor publico me deu uma base solida em gestao de dados, automacao de tarefas e atendimento ao usuario, competencias que trago para o desenvolvimento tecnico de software.",
