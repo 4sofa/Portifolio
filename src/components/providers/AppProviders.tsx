@@ -14,31 +14,15 @@ import {
 
 const LOCALE_STORAGE_KEY = "portfolio-locale";
 
-type Theme = "light" | "dark";
-
-interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
-}
-
 interface LocaleContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
 }
 
-const ThemeContext = createContext<ThemeContextType>({
-  theme: "dark",
-  toggleTheme: () => {},
-});
-
 const LocaleContext = createContext<LocaleContextType>({
   locale: DEFAULT_LOCALE,
   setLocale: () => {},
 });
-
-export function useTheme() {
-  return useContext(ThemeContext);
-}
 
 export function useLocale() {
   return useContext(LocaleContext);
@@ -47,38 +31,6 @@ export function useLocale() {
 export function usePortfolioContent() {
   const { locale } = useLocale();
   return getPortfolioData(locale);
-}
-
-function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") {
-      return "dark";
-    }
-
-    const storedTheme = localStorage.getItem("portfolio-theme");
-    if (storedTheme === "light" || storedTheme === "dark") {
-      return storedTheme;
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  });
-
-  useEffect(() => {
-    localStorage.setItem("portfolio-theme", theme);
-    document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]);
-
-  function toggleTheme() {
-    setTheme((current) => (current === "dark" ? "light" : "dark"));
-  }
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
 }
 
 function LocaleProvider({
@@ -150,8 +102,6 @@ export function AppProviders({
   initialLocale: Locale;
 }) {
   return (
-    <ThemeProvider>
-      <LocaleProvider initialLocale={initialLocale}>{children}</LocaleProvider>
-    </ThemeProvider>
+    <LocaleProvider initialLocale={initialLocale}>{children}</LocaleProvider>
   );
 }

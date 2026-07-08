@@ -10,7 +10,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import { useLocale, usePortfolioContent, useTheme } from "@/components/providers/AppProviders";
+import { useLocale, usePortfolioContent } from "@/components/providers/AppProviders";
 import type { Locale } from "@/lib/i18n";
 import type { NavIconName } from "@/data/portfolio-types";
 
@@ -92,30 +92,6 @@ function DockIcon({ name }: { name: NavIconName }) {
     default:
       return null;
   }
-}
-
-function SunIcon() {
-  return (
-    <svg className="h-[45%] w-[45%]" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2.5" />
-      <path d="M12 19.5V22" />
-      <path d="m4.9 4.9 1.8 1.8" />
-      <path d="m17.3 17.3 1.8 1.8" />
-      <path d="M2 12h2.5" />
-      <path d="M19.5 12H22" />
-      <path d="m4.9 19.1 1.8-1.8" />
-      <path d="m17.3 6.7 1.8-1.8" />
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg className="h-[45%] w-[45%]" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-    </svg>
-  );
 }
 
 function MenuIcon() {
@@ -221,7 +197,6 @@ export function Navbar() {
   const pathname = usePathname();
   const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   const content = usePortfolioContent();
 
   return (
@@ -247,27 +222,11 @@ export function Navbar() {
           </ul>
 
           <LocaleSwitcher />
-
-          <button
-            onClick={toggleTheme}
-            aria-label={content.ui.themeToggleLabel}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary shadow-sm backdrop-blur-xl transition-transform duration-200 hover:scale-110 active:scale-95"
-          >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </button>
         </nav>
       </header>
 
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 lg:hidden">
         <LocaleSwitcher />
-
-        <button
-          onClick={toggleTheme}
-          aria-label={content.ui.themeToggleLabel}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-border/60 bg-background/80 text-primary shadow-sm backdrop-blur-xl transition hover:scale-105"
-        >
-          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-        </button>
 
         <button
           onClick={() => setMobileOpen((current) => !current)}

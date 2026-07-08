@@ -25,6 +25,22 @@ export const sharedProjects = [
     repositoryUrl: "https://github.com/4sofa/SoundPad",
     featured: false,
   },
+  {
+    title: "Tech News Aggregator",
+    role: "Backend Developer",
+    stack: ["JavaScript", "Node.js", "Express", "libSQL", "Turso"],
+    demoUrl: "",
+    repositoryUrl: "https://github.com/4sofa/tech-news-aggregator",
+    featured: false,
+  },
+  {
+    title: "Web Controller Emulator",
+    role: "Full Stack Developer",
+    stack: ["Python", "JavaScript", "Flask", "WebSockets", "HTML", "CSS"],
+    demoUrl: "",
+    repositoryUrl: "https://github.com/4sofa/Web-Controller-Emulator",
+    featured: false,
+  },
 ];
 
 export const sharedNavigation = [

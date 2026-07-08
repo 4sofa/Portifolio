@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { usePortfolioContent } from "@/components/providers/AppProviders";
 import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function ProjectsSection() {
   const content = usePortfolioContent();
@@ -14,14 +13,6 @@ export function ProjectsSection() {
   return (
     <section className="section-shell border-b-0 pt-12 sm:pt-14">
       <div className="container space-y-10">
-        <AnimateIn>
-          <SectionHeading
-            eyebrow={ui.projectsEyebrow}
-            title={ui.projectsTitle}
-            description={ui.projectsDescription}
-          />
-        </AnimateIn>
-
         {featuredProject ? (
           <AnimateIn variant="scaleIn" delay={0.15}>
             <motion.article

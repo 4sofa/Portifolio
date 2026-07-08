@@ -17,8 +17,6 @@ export function LocalizedPageIntro({
       eyebrow={intro.eyebrow}
       title={intro.title}
       description={intro.description}
-      badge={intro.badge}
-      highlights={intro.highlights}
     />
   );
 }

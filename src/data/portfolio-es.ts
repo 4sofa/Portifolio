@@ -85,7 +85,6 @@ export const portfolioDataEs: PortfolioData = {
     },
   ],
   hero: {
-    eyebrow: "Estudiante de Ingeniería de Software",
     title: "Construyo soluciones que unen código y propósito.",
     highlightedText: "Código limpio. Diseño funcional. Resultado.",
     highlightedPhrases: ["Código limpio.", "Diseño funcional.", "Resultado."],
@@ -111,15 +110,7 @@ export const portfolioDataEs: PortfolioData = {
   stacks: [
     {
       title: "Lenguajes",
-      items: ["Python", "HTML", "CSS"],
-    },
-    {
-      title: "Cloud",
-      items: ["Google Cloud"],
-    },
-    {
-      title: "Herramientas",
-      items: ["Git", "GitHub", "Figma", "Excel Avanzado", "Google Sheets"],
+      items: ["Python", "HTML", "CSS", "JavaScript", "TypeScript"],
     },
   ],
   skills: [
@@ -130,15 +121,6 @@ export const portfolioDataEs: PortfolioData = {
         "CyberSecurity (Cisco)",
         "Automatización con Python",
         "Análisis de vulnerabilidades",
-      ],
-    },
-    {
-      title: "Madurez profesional",
-      items: [
-        "Gestión de datos administrativos",
-        "Tributación municipal básica",
-        "Comunicación interpersonal",
-        "Enfoque en soluciones",
       ],
     },
   ],
@@ -178,6 +160,16 @@ export const portfolioDataEs: PortfolioData = {
       summary:
         "Clon de soundpad para reproducir efectos sonoros y memes durante conversaciones o streams, con búsqueda de audios de MyInstants.",
     },
+    {
+      ...sharedProjects[2],
+      summary:
+        "Agregador editorial de noticias de TI con servidor Express, reader interno y base compatible con libSQL/Turso.",
+    },
+    {
+      ...sharedProjects[3],
+      summary:
+        "Servidor Windows que convierte un celular en control virtual via WebSockets/HTTP e inyecta comandos como control de Xbox 360.",
+    },
   ],
   contact: {
     title: "Contacto",
@@ -189,58 +181,43 @@ export const portfolioDataEs: PortfolioData = {
   },
   pageIntros: {
     about: {
-      eyebrow: "Sobre mí",
+      eyebrow: "Perfil",
       title: "Quién soy, qué hago y cómo pienso sobre tecnología.",
       description: "Una visión más profunda de mi trayectoria, competencias y forma de trabajar.",
-      badge: "Perfil profesional y narrativa de carrera",
-      highlights: ["Contexto de trayectoria", "Resumen estratégico del perfil", "Indicadores y diferenciales"],
     },
     stacks: {
-      eyebrow: "Stacks",
-      title: "Tecnologías y herramientas de mi día a día.",
-      description: "Los lenguajes, recursos de cloud y herramientas que forman parte de mi repertorio técnico actual.",
-      badge: "Mapa técnico del repertorio actual",
-      highlights: ["Lenguajes principales", "Cloud y seguridad", "Herramientas de rutina profesional"],
+      eyebrow: "Stack tecnico",
+      title: "Lenguajes, cloud y herramientas.",
+      description: "Lenguajes que estoy aprendiendo y utilizando actualmente.",
     },
     skills: {
       eyebrow: "Skills",
-      title: "Competencias que van más allá del código.",
-      description: "Habilidades técnicas y profesionales que me permiten entregar valor real.",
-      badge: "Ejecución, organización y pensamiento de producto",
-      highlights: ["Habilidades técnicas", "Madurez funcional", "Claridad de comunicación y resolución"],
+      title: "Skills",
+      description: "Competencias tecnicas y soft skills.",
     },
     education: {
       eyebrow: "Educación",
       title: "Mi formación académica.",
       description: "Base teórica en Ingeniería de Software con foco en escalabilidad y fundamentos.",
-      badge: "Formación y evolución técnica",
-      highlights: ["Graduación en curso", "Fundamentos de ingeniería", "Evolución continua"],
     },
     experience: {
       eyebrow: "Experiencia",
       title: "Dónde construí base práctica y visión de proceso.",
       description: "Mi trayectoria profesional mezcla actuación en el sector público con la transición hacia software.",
-      badge: "Experiencia profesional y contexto operativo",
-      highlights: ["Automatización de procesos", "Gestión de datos", "Transición a software"],
     },
     projects: {
-      eyebrow: "Proyectos",
-      title: "Proyectos que muestran cómo pienso y resuelvo problemas.",
-      description: "Cada proyecto es una vitrina técnica con contexto de rol, stack y enlaces.",
-      badge: "Casos seleccionados y entregas relevantes",
-      highlights: ["Proyectos destacados", "Rol asumido en cada entrega", "Enlaces externos para demo y repositorio"],
+      eyebrow: "Proyectos seleccionados",
+      title: "Proyectos seleccionados que demuestran enfoque tecnico y resolucion de problemas.",
+      description: "Cada proyecto representa un desafio diferente. La estructura permite evolucion continua.",
     },
     contact: {
       eyebrow: "Contacto",
       title: "¿Conversamos?",
       description: "Estoy abierto a oportunidades, conexiones profesionales y proyectos interesantes.",
-      badge: "Invitación a networking y oportunidades",
-      highlights: ["Disponibilidad actual", "Canal principal de contacto", "Redes profesionales y sociales"],
     },
   },
   ui: {
     localeLabel: "Idioma",
-    themeToggleLabel: "Cambiar tema",
     openMenuLabel: "Abrir menú",
     closeMenuLabel: "Cerrar menú",
     skipToContentLabel: "Saltar al contenido",
@@ -252,33 +229,12 @@ export const portfolioDataEs: PortfolioData = {
     resumeSoon: "Próximamente",
     degreeLabel: "Ingeniería de Software",
     degreePeriod: "UNINTER - 2025",
-    pageContextLabel: "Contexto de la página",
-    pageContextFallback: "Página dedicada de la navegación principal",
-    aboutEyebrow: "Perfil",
-    aboutDirectionTitle: "Dirección",
-    aboutDirectionText:
-      "Estoy orientando mi crecimiento hacia CyberSecurity, fortaleciendo mi base en análisis de vulnerabilidades, redes y defensa de sistemas.",
-    projectsEyebrow: "Proyectos seleccionados",
-    projectsTitle: "Proyectos seleccionados que demuestran enfoque técnico y resolución de problemas.",
-    projectsDescription: "Cada proyecto representa un desafío diferente. La estructura permite evolución continua.",
     featuredProjectLabel: "Proyecto destacado",
     projectLabel: "Proyecto",
     roleLabel: "Rol",
     stackLabel: "Stack",
     demoLabel: "Demo",
     repositoryLabel: "GitHub",
-    stacksEyebrow: "Stack técnico",
-    stacksTitle: "Lenguajes, cloud y herramientas de mi repertorio técnico.",
-    stacksDescription: "Organizado en bloques independientes para lectura rápida y directa.",
-    currentFocusLabel: "Enfoque actual",
-    currentFocusTitle: "CyberSecurity como foco actual de especialización.",
-    currentFocusDescription: "He orientado mis estudios hacia análisis de vulnerabilidades, redes, defensa de sistemas y seguridad aplicada.",
-    skillsEyebrow: "Competencias profesionales",
-    skillsTitle: "Competencias profesionales que complementan la ejecución técnica.",
-    skillsDescription: "Habilidades que van más allá del código, comunicación, organización y pensamiento de producto.",
-    mindsetLabel: "Mentalidad",
-    mindsetText:
-      "Cada proyecto es una oportunidad para aprender algo nuevo. Priorizo entender el problema antes de escribir la primera línea de código.",
     educationEyebrow: "Educación",
     educationTitle: "Mi trayectoria académica",
     educationDescription: "Base teórica en Ingeniería de Software enfocada en escalabilidad y fundamentos de algoritmos.",
@@ -297,8 +253,6 @@ export const portfolioDataEs: PortfolioData = {
     contactContextLabel: "Contexto",
     contactMessageLabel: "Mensaje",
     contactMessagePlaceholder: "Cuéntame un poco sobre la oportunidad, proyecto o idea.",
-    contactHelperText:
-      "Si NEXT_PUBLIC_FORMSPREE_ENDPOINT está configurado, el envío va directo por el formulario. De lo contrario, abrimos tu cliente de correo.",
     submitLabel: "Enviar mensaje",
     submittingLabel: "Enviando...",
     sendFailureMessage: "Fallo en el envío",

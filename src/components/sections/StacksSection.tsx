@@ -1,61 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { usePortfolioContent } from "@/components/providers/AppProviders";
-import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
+
+const languageIcons: Record<string, string> = {
+  Python: "/logos/python.svg",
+  HTML: "/logos/html5.svg",
+  CSS: "/logos/css3.svg",
+  JavaScript: "/logos/javascript.svg",
+  TypeScript: "/logos/typescript.svg",
+};
 
 export function StacksSection() {
-  const { stacks, ui } = usePortfolioContent();
+  const { stacks } = usePortfolioContent();
+  const languageStack = stacks.find((category) =>
+    category.items.some((item) => languageIcons[item]),
+  );
 
   return (
     <section className="section-shell border-b-0 pt-12 sm:pt-14">
       <div className="container space-y-10">
-        <AnimateIn>
-          <SectionHeading
-            eyebrow={ui.stacksEyebrow}
-            title={ui.stacksTitle}
-            description={ui.stacksDescription}
-          />
-        </AnimateIn>
-
-        <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-          <StaggerContainer className="grid gap-4">
-            {stacks.map((category) => (
-              <StaggerItem key={category.title}>
-                <article className="surface-panel p-7">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                    {category.title}
-                  </h3>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {category.items.map((item) => (
-                      <motion.span
-                        key={item}
-                        whileHover={{ scale: 1.08, y: -2 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                        className="cursor-default rounded-full border border-border bg-background/60 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                      >
-                        {item}
-                      </motion.span>
-                    ))}
-                  </div>
-                </article>
+        {languageStack ? (
+          <StaggerContainer className="mx-auto grid max-w-4xl grid-cols-2 justify-items-center gap-x-10 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
+            {languageStack.items.map((item) => (
+              <StaggerItem key={item}>
+                <motion.div
+                  whileHover={{ scale: 1.04, y: -3 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 18 }}
+                  className="flex min-h-36 flex-col items-center justify-center gap-4 text-center"
+                >
+                  <Image
+                    src={languageIcons[item]}
+                    alt=""
+                    aria-hidden="true"
+                    width={88}
+                    height={88}
+                    className="h-20 w-20 object-contain sm:h-24 sm:w-24"
+                  />
+                  <span className="text-lg font-semibold text-foreground sm:text-xl">{item}</span>
+                </motion.div>
               </StaggerItem>
             ))}
           </StaggerContainer>
-
-          <AnimateIn variant="slideLeft" delay={0.2}>
-            <aside className="surface-panel p-8">
-              <div className="space-y-4">
-                <p className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
-                  {ui.currentFocusLabel}
-                </p>
-                <h3 className="text-2xl font-semibold text-foreground">{ui.currentFocusTitle}</h3>
-                <p className="section-copy text-sm">{ui.currentFocusDescription}</p>
-              </div>
-            </aside>
-          </AnimateIn>
-        </div>
+        ) : null}
       </div>
     </section>
   );

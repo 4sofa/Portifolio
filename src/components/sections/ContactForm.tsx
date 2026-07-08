@@ -155,9 +155,7 @@ export function ContactForm({ contactEmail }: ContactFormProps) {
         />
       </label>
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs leading-6 text-muted-foreground">{ui.contactHelperText}</p>
-
+      <div className="flex justify-end">
         <button
           type="submit"
           disabled={status === "submitting"}

@@ -3,20 +3,15 @@
 import { motion } from "framer-motion";
 import { usePortfolioContent } from "@/components/providers/AppProviders";
 import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/ui/AnimateIn";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function AboutSection() {
   const content = usePortfolioContent();
-  const { about, ui } = content;
+  const { about } = content;
 
   return (
     <section className="section-shell border-b-0 pt-12 sm:pt-14">
       <div className="container grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-8">
-          <AnimateIn>
-            <SectionHeading eyebrow={ui.aboutEyebrow} title={about.title} description={about.lead} />
-          </AnimateIn>
-
           <AnimateIn delay={0.15}>
             <div className="surface-panel p-8 sm:p-10">
               <div className="space-y-6">
@@ -45,17 +40,6 @@ export function AboutSection() {
               </motion.article>
             </StaggerItem>
           ))}
-
-          <StaggerItem>
-            <article className="surface-panel p-6">
-              <p className="text-sm uppercase tracking-[0.18em] text-primary">
-                {ui.aboutDirectionTitle}
-              </p>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                {ui.aboutDirectionText}
-              </p>
-            </article>
-          </StaggerItem>
         </StaggerContainer>
       </div>
     </section>

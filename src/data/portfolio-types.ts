@@ -37,7 +37,6 @@ export interface SocialLink extends ActionLink {
 }
 
 export interface HeroContent {
-  eyebrow: string;
   title: string;
   highlightedText: string;
   highlightedPhrases: string[];
@@ -104,8 +103,6 @@ export interface PageIntroContent {
   eyebrow: string;
   title: string;
   description: string;
-  badge: string;
-  highlights: string[];
 }
 
 export interface ContactOption {
@@ -115,7 +112,6 @@ export interface ContactOption {
 
 export interface LocaleUiContent {
   localeLabel: string;
-  themeToggleLabel: string;
   openMenuLabel: string;
   closeMenuLabel: string;
   skipToContentLabel: string;
@@ -127,31 +123,12 @@ export interface LocaleUiContent {
   resumeSoon: string;
   degreeLabel: string;
   degreePeriod: string;
-  pageContextLabel: string;
-  pageContextFallback: string;
-  aboutEyebrow: string;
-  aboutDirectionTitle: string;
-  aboutDirectionText: string;
-  projectsEyebrow: string;
-  projectsTitle: string;
-  projectsDescription: string;
   featuredProjectLabel: string;
   projectLabel: string;
   roleLabel: string;
   stackLabel: string;
   demoLabel: string;
   repositoryLabel: string;
-  stacksEyebrow: string;
-  stacksTitle: string;
-  stacksDescription: string;
-  currentFocusLabel: string;
-  currentFocusTitle: string;
-  currentFocusDescription: string;
-  skillsEyebrow: string;
-  skillsTitle: string;
-  skillsDescription: string;
-  mindsetLabel: string;
-  mindsetText: string;
   educationEyebrow: string;
   educationTitle: string;
   educationDescription: string;
@@ -170,7 +147,6 @@ export interface LocaleUiContent {
   contactContextLabel: string;
   contactMessageLabel: string;
   contactMessagePlaceholder: string;
-  contactHelperText: string;
   submitLabel: string;
   submittingLabel: string;
   sendFailureMessage: string;
